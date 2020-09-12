@@ -1,0 +1,55 @@
+const data = {
+     labels: ['Total', 'Active', 'Recover', 'Death'],
+     datasets: [{
+          // data: [2445, 1806, 625, 350],
+          backgroundColor: [
+               'rgba(255, 99, 132, 0.8)',
+               'rgba(54, 162, 235, 0.8)',
+               'rgba(255, 206, 86, 0.8)',
+               'rgba(3, 3, 3, 0.8)',
+          ],
+          borderColor: [
+               'rgba(255, 255, 255, 0)',
+          ],
+          borderWidth: 0
+     }]
+};
+
+const opts = {
+     responsive: true,
+     maintainAspectRatio: true,
+     scales: {
+          xAxes: [{
+               display: false,
+               ticks: {
+                    beginAtZero: true
+               }
+          }],
+          yAxes: [{
+               display: false,
+               ticks: {
+                    beginAtZero: true
+               }
+          }],
+     },
+     title: {
+          display: true,
+          text: 'Statistic Datas',
+          fontSize: 25,
+          padding: 20
+     },
+     legend: {
+          position: 'bottom',
+          labels: {
+               padding: 30,
+               usePointStyle: true,
+               align: 'start'
+          }
+     }
+};
+
+
+export {
+     opts,
+     data
+};

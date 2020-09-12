@@ -11,7 +11,7 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="loading">
+    <v-row v-if="statisticData">
       <overview-card
         v-for="data in statisticData"
         :key="data.name"
@@ -31,23 +31,32 @@
         </v-card>
       </v-col>
     </v-row>
+
+    <v-row>
+      <v-col cols="12" sm="4">
+        <div class="chart__container">
+          <doughnut-chart></doughnut-chart>
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 // @ is an alias to /src
 import OverviewCard from "@/components/OverviewCard";
+import DoughnutChart from "@/components/charts/Doughnut";
 import axios from "axios";
 export default {
   name: "Home",
   data() {
     return {
-      data: "",
       statisticData: "",
     };
   },
   components: {
     OverviewCard,
+    DoughnutChart,
   },
   computed: {
     loading() {
@@ -59,7 +68,6 @@ export default {
   },
   watch: {
     overviewData(val) {
-      console.log(val);
       let statisticsData = [
         {
           title: "Active",
@@ -86,7 +94,7 @@ export default {
             sm: 3,
           },
           color: "white",
-          number: val.deths,
+          number: val.deaths.total,
         },
         {
           title: "Total",
@@ -104,16 +112,19 @@ export default {
   created() {
     this.fetchData();
   },
-  mounted() {
-    this.test();
-  },
   methods: {
     fetchData() {
       this.$store.dispatch("fetchData");
     },
-    test() {
-      // console.log(this.$route);
-    },
   },
 };
 </script>
+
+<style>
+.chart__container {
+  position: relative;
+  max-width: 400px;
+  max-height: 400px;
+  margin: 0 auto;
+}
+</style>
