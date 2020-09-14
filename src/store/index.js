@@ -44,25 +44,44 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    fetchData({
-      commit
-    }) {
+    fetchData({ commit }) {
       this.state.overViewLoading = false;
       let country = router.history.current.params.country;
+      let date = router.history.current.params.date;
+      let url;
+
+      date == null
+        ? (url = `/statistics?country=${country}`)
+        : (url = `/history?country=${country}&day=${date}`);
 
       axios({
         baseURL,
-        url: `/statistics?country=${country}`,
-        method: 'get',
-        headers
-      }).then((resp) => {
-        commit('setOverViweData', resp.data.response);
+        url,
+        method: "get",
+        headers,
       })
+        .then((resp) => {
+          console.log(resp.data.response[0]);
+          commit("setOverViweData", resp.data.response);
+        })
+        .catch((resp) => {
+          let defaultData = [
+            {
+              cases: {
+                active: 0,
+                recovered: 0,
+                total: 0,
+              },
+              deaths: {
+                total: 0,
+              },
+            },
+          ];
+          commit("setOverViweData", resp.data.response);
+        });
     },
 
-    getCountryLists({
-      commit
-    }) {
+    getCountryLists({ commit }) {
       axios({
         baseURL,
         url: "/countries",

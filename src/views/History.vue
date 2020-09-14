@@ -11,7 +11,7 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="statisticData">
+    <v-row v-if="loading">
       <overview-card
         v-for="data in statisticData"
         :key="data.name"
@@ -23,7 +23,28 @@
       ></overview-card>
     </v-row>
     <v-row v-else>
-      <v-col cols="12">
+      <v-col cols="3">
+        <v-card>
+          <v-skeleton-loader
+            type="list-item-two-line , card-heading"
+          ></v-skeleton-loader>
+        </v-card>
+      </v-col>
+      <v-col cols="3">
+        <v-card>
+          <v-skeleton-loader
+            type="list-item-two-line , card-heading"
+          ></v-skeleton-loader>
+        </v-card>
+      </v-col>
+      <v-col cols="3">
+        <v-card>
+          <v-skeleton-loader
+            type="list-item-two-line , card-heading"
+          ></v-skeleton-loader>
+        </v-card>
+      </v-col>
+      <v-col cols="3">
         <v-card>
           <v-skeleton-loader
             type="list-item-two-line , card-heading"

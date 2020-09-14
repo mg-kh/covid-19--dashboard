@@ -22,6 +22,22 @@
           >
 
           <v-card-text class="pb-0">
+            <v-text-field
+              v-model="dateSearch"
+              label="YYYY/MM/DD"
+              prepend-icon="mdi-web"
+              :val="getDate"
+              @focus="showDatapicker = !showDatapicker"
+            ></v-text-field>
+            <v-date-picker
+              v-if="showDatapicker"
+              v-model="dateSearch"
+              elevation="3"
+              class="mt-4"
+              min="2016-06-15"
+              max="2030-12-31"
+              @input="showDatapicker = !showDatapicker"
+            ></v-date-picker>
             <v-select
               v-if="countryLoading"
               :items="countyLists"
@@ -54,7 +70,10 @@ export default {
   data() {
     return {
       dialog: false,
+      date: false,
       country: "",
+      dateSearch: "",
+      showDatapicker: false,
     };
   },
   computed: {
@@ -64,6 +83,9 @@ export default {
     countyLists() {
       return this.$store.getters.countyLists;
     },
+    getDate() {
+      return this.dateSearch;
+    },
   },
   methods: {
     getCountryLists() {
@@ -72,13 +94,24 @@ export default {
     },
     searchByCountry() {
       this.dialog = false;
-      this.$router.push({
-        name: "Statistics",
-        params: {
-          country: this.country,
-        },
-      });
-      this.$store.dispatch("fetchData");
+      if (this.dateSearch == "") {
+        this.$router.push({
+          name: "Statistics",
+          params: {
+            country: this.country,
+          },
+        });
+        this.$store.dispatch("fetchData");
+      } else {
+        this.$router.push({
+          name: "History",
+          params: {
+            country: this.country,
+            date: this.dateSearch,
+          },
+        });
+        this.$store.dispatch("fetchData");
+      }
     },
   },
 };
