@@ -11,17 +11,14 @@ export default {
   },
   computed: {
     doughnutData() {
-      return this.$store.getters.getOverviewData;
+      return this.$store.getters.eachCountryData;
     },
   },
   watch: {
     doughnutData(val) {
-      let dougData = [
-        val.cases.total,
-        val.cases.active,
-        val.cases.recovered,
-        val.deaths.total,
-      ];
+      let dougData = [val.total, val.active, val.recovered, val.dead];
+      console.log(val);
+      console.log(dougData);
       data.datasets[0].data = dougData;
       this.renderChart(data, opts);
     },

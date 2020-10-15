@@ -15,19 +15,15 @@ const baseURL = "https://covid-193.p.rapidapi.com/";
 export default new Vuex.Store({
   state: {
     overViewData: "",
-    overViewLoading: false,
-    countryLoading: false,
-    countries: "",
+    countries: null,
+    eachCountryData: null,
   },
   getters: {
-    loading(state) {
-      return state.overViewLoading;
-    },
-    countryLoading(state) {
-      return state.countryLoading;
-    },
     getOverviewData(state) {
       return state.overViewData;
+    },
+    eachCountryData(state) {
+      return state.eachCountryData;
     },
     countyLists(state) {
       return state.countries;
@@ -37,6 +33,23 @@ export default new Vuex.Store({
     setOverViweData(state, data) {
       state.overViewData = data[0];
       state.overViewLoading = true;
+    },
+    eachCountryData(state, datas) {
+      let data = datas[0];
+      let dataPack = {
+        active: data.cases.active,
+        recovered: data.cases.recovered,
+        total: data.cases.total,
+        new: data.cases.new,
+        critical: data.cases.critical,
+        dead: data.deaths.total,
+        population: data.population,
+        country: data.country,
+        test: data.tests.total,
+        time: data.time,
+        day: data.day,
+      };
+      state.eachCountryData = dataPack;
     },
     getCountryLists(state, countries) {
       state.countries = countries;
@@ -61,8 +74,9 @@ export default new Vuex.Store({
         headers,
       })
         .then((resp) => {
-          console.log(resp.data.response[0]);
+          // console.log(resp.data.response[0]);
           commit("setOverViweData", resp.data.response);
+          commit("eachCountryData", resp.data.response);
         })
         .catch((resp) => {
           let defaultData = [

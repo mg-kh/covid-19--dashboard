@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["tips"],{e710:function(n,e,t){"use strict";t.r(e);var a=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("v-container",[t("v-row",[t("h1",[n._v("TIPS")])])],1)},o=[],r=t("2877"),c=t("6544"),i=t.n(c),l=t("a523"),s=t("0fd9"),u={},w=Object(r["a"])(u,a,o,!1,null,null,null);e["default"]=w.exports;i()(w,{VContainer:l["a"],VRow:s["a"]})}}]);
+//# sourceMappingURL=tips.e22bd93e.js.map
