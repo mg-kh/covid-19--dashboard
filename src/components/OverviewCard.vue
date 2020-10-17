@@ -5,7 +5,7 @@
         <h1 class="text-h3 font-italic text--secondary">
           {{ countryData.country }}
         </h1>
-        <h3 class="font-italic">{{ countryData.day }}</h3>
+        <h3 class="font-italic">{{ countryData.day }} နေ့အထိ</h3>
       </v-col>
     </v-row>
     <v-row v-else>
@@ -26,7 +26,7 @@
     <v-row v-if="isLoading">
       <v-col cols="12">
         <v-alert text outlined color="deep-orange" icon="mdi-fire">
-          <h3 class="text-h5">{{ countryData.new }}</h3>
+          <h3 class="text-h5">အသစ်တွေ့ရှိမှု ({{ countryData.new }}) ဉီး</h3>
         </v-alert>
       </v-col>
     </v-row>
@@ -47,9 +47,9 @@
 
     <v-row v-if="isLoading">
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="red" dark>
+        <v-card color="blue-grey lighten-2" dark>
           <v-card-title>
-            Active
+            ပိုးတွေ့
           </v-card-title>
           <v-card-text>
             <v-chip light>
@@ -59,9 +59,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="green" dark>
+        <v-card color="blue-grey lighten-2" dark>
           <v-card-title>
-            Recovered
+            ပြန်လည်သက်သာ
           </v-card-title>
           <v-card-text>
             <v-chip light>
@@ -71,9 +71,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="blue-grey darken-2" dark>
+        <v-card color="blue-grey lighten-2" dark>
           <v-card-title>
-            Dead
+            သေဆုံး
           </v-card-title>
           <v-card-text>
             <v-chip light>
@@ -83,9 +83,9 @@
         </v-card>
       </v-col>
       <v-col>
-        <v-card color="light-blue darken-1" dark>
+        <v-card color="blue-grey lighten-2" dark>
           <v-card-title>
-            Total
+            စုစုပေါင်း
           </v-card-title>
           <v-card-text>
             <v-chip light>
@@ -95,9 +95,9 @@
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="teal darken-2" dark>
+        <v-card color="blue-grey lighten-2" dark>
           <v-card-title>
-            Critical
+            ပြင်းထန်
           </v-card-title>
           <v-card-text>
             <v-chip light>
@@ -112,28 +112,31 @@
             <v-dialog v-model="dialog" scrollable max-width="500px">
               <template v-slot:activator="{ on, attrs }">
                 <v-btn color="primary" outlined dark v-bind="attrs" v-on="on">
-                  View More
+                  နောက်ထပ်
                 </v-btn>
               </template>
               <v-card>
-                <v-card-title class="text-h5">Other Datas</v-card-title>
+                <v-card-title class="text-h5"
+                  >ခြုံငုံတင်ပြချက်များ</v-card-title
+                >
                 <v-divider></v-divider>
                 <v-card-text style="height: 300px;">
                   <v-col cols="12">
-                    <h3 class="text-h5">Test Units</h3>
+                    <h3 class="text-h5 mb-3">စစ်ဆေးမှုပေါင်း</h3>
                     <p class="text-subtitle-1 font-weight-bold">
                       {{ countryData.test }}
                     </p>
                   </v-col>
+                  <v-divider></v-divider>
                   <v-col cols="12">
-                    <h3 class="text-h5">Total/Population(Ratio)</h3>
+                    <h3 class="text-h5 mb-3">စုစုပေါင်း/လူဉီးရေ(အချိုး)</h3>
                     <p class="text-subtitle-1">{{ totalPopRatio }} &#37;</p>
                   </v-col>
                 </v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
                   <v-btn color="blue darken-1" text @click="dialog = false">
-                    Close
+                    ပိတ်ရန်
                   </v-btn>
                 </v-card-actions>
               </v-card>

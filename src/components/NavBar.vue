@@ -9,7 +9,7 @@
 
       <v-btn color="blue-grey darken-3" dark @click.prevent="getCountryLists">
         <v-icon left dark>mdi-web</v-icon>
-        Search
+        ရှာဖွေရန်
       </v-btn>
     </v-app-bar>
 
@@ -17,8 +17,10 @@
       <v-dialog v-model="dialog" max-width="350">
         <v-card>
           <v-card-title class="headline font-weight-light"
-            >Search By
-            <span class="font-weight-regular pl-2">Country</span></v-card-title
+            >နိုင်ငံနှင်
+            <span class="font-weight-regular pl-2"
+              >ရက်စွဲအလိုက်</span
+            ></v-card-title
           >
 
           <v-card-text class="pb-0">
@@ -56,7 +58,7 @@
               text
               @click="searchByCountry"
             >
-              Search
+              ရှာပါ
             </v-btn>
           </v-card-actions>
         </v-card>

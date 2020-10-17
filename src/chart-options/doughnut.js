@@ -1,5 +1,5 @@
 const data = {
-  labels: ["Total", "Active", "Recover", "Death"],
+  labels: ["စုစုပေါင်း", "ပိုးတွေ့", "ပြန်လည်သက်သာ", "သေဆုံး"],
   datasets: [
     {
       // data: [2445, 1806, 625, 350],
@@ -47,7 +47,7 @@ const opts = {
     labels: {
       padding: 30,
       usePointStyle: true,
-      align: "start",
+      // align: "",
     },
   },
 };
