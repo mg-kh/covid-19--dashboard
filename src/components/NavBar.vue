@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar app color="blue-grey darken-1" dark>
+    <v-app-bar app color="indigo" dark>
       <v-toolbar-title class="font-weight-light"
         >Corona <span class="font-weight-bold">Dashboard</span></v-toolbar-title
       >

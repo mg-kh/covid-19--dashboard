@@ -2,10 +2,12 @@
   <v-container>
     <v-row v-if="isLoading">
       <v-col cols="12">
-        <h1 class="text-h3 font-italic text--secondary">
+        <h1 class="text-md-h3 font-italic text--secondary">
           {{ countryData.country }}
         </h1>
-        <h3 class="font-italic">{{ countryData.day }} နေ့အထိ</h3>
+        <h3 class="text-subtitle-2 font-italic">
+          {{ countryData.day }} နေ့အထိ
+        </h3>
       </v-col>
     </v-row>
     <v-row v-else>
@@ -23,10 +25,12 @@
       </v-col>
     </v-row>
 
-    <v-row v-if="isLoading">
+    <v-row v-if="isLoading" class="mb-7">
       <v-col cols="12">
         <v-alert text outlined color="deep-orange" icon="mdi-fire">
-          <h3 class="text-h5">အသစ်တွေ့ရှိမှု ({{ countryData.new }}) ဉီး</h3>
+          <h3 class="text-subtitle-1">
+            အသစ်တွေ့ရှိမှု ({{ countryData.new }}) ဉီး
+          </h3>
         </v-alert>
       </v-col>
     </v-row>
@@ -47,102 +51,95 @@
 
     <v-row v-if="isLoading">
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="blue-grey lighten-2" dark>
-          <v-card-title>
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/X4pO9rD.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
             ပိုးတွေ့
           </v-card-title>
           <v-card-text>
-            <v-chip light>
-              {{ countryData.active }}
-            </v-chip>
+            <p class="text-h6 green--text">({{ countryData.active }}) ဉီး</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="blue-grey lighten-2" dark>
-          <v-card-title>
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/rf2Gcfo.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
             ပြန်လည်သက်သာ
           </v-card-title>
           <v-card-text>
-            <v-chip light>
-              {{ countryData.recovered }}
-            </v-chip>
+            <p class="text-h6 green--text">({{ countryData.recovered }}) ဉီး</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="blue-grey lighten-2" dark>
-          <v-card-title>
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/ZEhZZs9.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
             သေဆုံး
           </v-card-title>
           <v-card-text>
-            <v-chip light>
-              {{ countryData.dead }}
-            </v-chip>
+            <p class="text-h6 green--text">({{ countryData.dead }}) ဉီး</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col>
-        <v-card color="blue-grey lighten-2" dark>
-          <v-card-title>
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/fdK8rNW.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
             စုစုပေါင်း
           </v-card-title>
           <v-card-text>
-            <v-chip light>
-              {{ countryData.total }}
-            </v-chip>
+            <p class="text-h6 green--text">({{ countryData.total }}) ဉီး</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <v-card color="blue-grey lighten-2" dark>
-          <v-card-title>
-            ပြင်းထန်
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/Vrzt1oi.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
+            ရောဂါပြင်းထန်သူ
           </v-card-title>
           <v-card-text>
-            <v-chip light>
-              {{ countryData.critical }}
-            </v-chip>
+            <p class="text-h6 green--text">({{ countryData.critical }}) ဉီး</p>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="12" sm="6" md="4" lg="3">
-        <template>
-          <v-row justify="center">
-            <v-dialog v-model="dialog" scrollable max-width="500px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn color="primary" outlined dark v-bind="attrs" v-on="on">
-                  နောက်ထပ်
-                </v-btn>
-              </template>
-              <v-card>
-                <v-card-title class="text-h5"
-                  >ခြုံငုံတင်ပြချက်များ</v-card-title
-                >
-                <v-divider></v-divider>
-                <v-card-text style="height: 300px;">
-                  <v-col cols="12">
-                    <h3 class="text-h5 mb-3">စစ်ဆေးမှုပေါင်း</h3>
-                    <p class="text-subtitle-1 font-weight-bold">
-                      {{ countryData.test }}
-                    </p>
-                  </v-col>
-                  <v-divider></v-divider>
-                  <v-col cols="12">
-                    <h3 class="text-h5 mb-3">စုစုပေါင်း/လူဉီးရေ(အချိုး)</h3>
-                    <p class="text-subtitle-1">{{ totalPopRatio }} &#37;</p>
-                  </v-col>
-                </v-card-text>
-                <v-divider></v-divider>
-                <v-card-actions>
-                  <v-btn color="blue darken-1" text @click="dialog = false">
-                    ပိတ်ရန်
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-          </v-row>
-        </template>
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/10Qu5AO.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
+            စစ်ဆေးမှုပေါင်း
+          </v-card-title>
+          <v-card-text>
+            <p class="text-h6 green--text">({{ countryData.test }}) ခု</p>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="6" md="4" lg="3">
+        <v-card class="text-center rounded-xl mb-10" light>
+          <div class="img__container rounded-xl elevation-3">
+            <v-img width="70px" src="https://i.imgur.com/RuN3vTK.png"> </v-img>
+          </div>
+          <v-card-title class="pt-14 justify-center indigo--text">
+            စုစုပေါင်း/လူဉီးရေ(အချိုး)
+          </v-card-title>
+          <v-card-text>
+            <p class="text-h6 green--text">({{ totalPopRatio }}) %</p>
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
     <v-row v-else>
@@ -200,3 +197,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.img__container {
+  position: absolute;
+  top: -30%;
+  background: white;
+  padding: 10px;
+  left: 50%;
+  transform: translate(-50%);
+}
+</style>

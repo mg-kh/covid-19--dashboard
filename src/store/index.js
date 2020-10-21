@@ -14,19 +14,19 @@ const baseURL = "https://covid-193.p.rapidapi.com/";
 
 export default new Vuex.Store({
   state: {
-    overViewData: "",
     countries: null,
     eachCountryData: null,
+    overViewCountryData: {},
   },
   getters: {
-    getOverviewData(state) {
-      return state.overViewData;
-    },
     eachCountryData(state) {
       return state.eachCountryData;
     },
     countyLists(state) {
       return state.countries;
+    },
+    overViewCountryData(state) {
+      return state.overViewCountryData;
     },
   },
   mutations: {
@@ -50,6 +50,14 @@ export default new Vuex.Store({
         day: data.day,
       };
       state.eachCountryData = dataPack;
+    },
+    overviewCountryData(state, datas) {
+      let countryDataObj = {
+        total: datas.cases.total,
+        population: datas.population,
+        country: datas.country,
+      };
+      state.overViewCountryData = countryDataObj;
     },
     getCountryLists(state, countries) {
       state.countries = countries;
@@ -77,6 +85,36 @@ export default new Vuex.Store({
           // console.log(resp.data.response[0]);
           commit("setOverViweData", resp.data.response);
           commit("eachCountryData", resp.data.response);
+        })
+        .catch((resp) => {
+          let defaultData = [
+            {
+              cases: {
+                active: 0,
+                recovered: 0,
+                total: 0,
+              },
+              deaths: {
+                total: 0,
+              },
+            },
+          ];
+          commit("setOverViweData", resp.data.response);
+        });
+    },
+
+    getoverViewCountryData({ commit }, country) {
+      axios({
+        baseURL,
+        url: "/statistics",
+        params: {
+          country,
+        },
+        method: "get",
+        headers,
+      })
+        .then((resp) => {
+          commit("overviewCountryData", resp.data.response[0]);
         })
         .catch((resp) => {
           let defaultData = [

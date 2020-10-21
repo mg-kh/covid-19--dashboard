@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="blue-grey darken-1" fixed padless>
+  <v-footer color="indigo" fixed padless>
     <v-row justify="center" no-gutters>
       <router-link class="pa-3" :to="{ name: 'Home' }">
         <v-icon dark>mdi-home</v-icon>
@@ -26,12 +26,12 @@ export default {
 
 <style>
 .active {
-  background: #2f2f2f;
+  background: #303f9f;
 }
 a {
   text-decoration: none;
 }
 a:hover {
-  background: #2f2f2f;
+  background: #303f9f;
 }
 </style>

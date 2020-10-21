@@ -1,54 +1,32 @@
 <template>
   <v-container>
-    <v-row v-if="isLoading">
-      <v-col
-        cols="6"
-        sm="4"
-        md="3"
-        v-for="country in allCountries"
-        :key="country"
-      >
-        <v-card
-          dark
-          color="blue-grey darken-1"
-          :to="{ name: 'Statistics', params: { country } }"
-        >
-          <v-card-title class="caption text-sm-subtitle-1">
-            {{ country }}
-          </v-card-title>
-        </v-card>
+    <v-row>
+      <v-col cols="12">
+        <h1 class="text-center indigo--text">
+          Explore Covid-19 Statistics Around The World!.
+        </h1>
       </v-col>
     </v-row>
-
-    <v-row v-else>
-      <v-col
-        cols="6"
-        sm="4"
-        md="3"
-        v-for="fakeLoad in fakeLoader"
-        :key="fakeLoad"
-      >
-        <template>
-          <v-sheet class="pa-3">
-            <v-skeleton-loader
-              class="mx-auto"
-              max-width="300"
-              type="text"
-            ></v-skeleton-loader>
-          </v-sheet>
-        </template>
+    <v-row>
+      <v-col cols="12">
+        <map-chart></map-chart>
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import MapChart from "@/plugins/vue-map-chart";
+// import { getCode, getName } from "@/plugins/country";
 export default {
   data() {
     return {
       isLoading: false,
       fakeLoader: 36,
     };
+  },
+  components: {
+    MapChart,
   },
   computed: {
     allCountries() {
