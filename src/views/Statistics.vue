@@ -11,12 +11,14 @@
         </div>
       </v-col>
     </v-row> -->
+    <date-search></date-search>
   </v-container>
 </template>
 
 <script>
 // @ is an alias to /src
 import OverviewCard from "@/components/OverviewCard";
+import DateSearch from "@/components/DateSearch";
 // import DoughnutChart from "@/components/charts/Doughnut";
 import axios from "axios";
 export default {
@@ -24,6 +26,7 @@ export default {
   components: {
     OverviewCard,
     // DoughnutChart,
+    DateSearch,
   },
   created() {
     this.fetchData();
