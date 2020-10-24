@@ -1,5 +1,10 @@
 <template>
-  <v-footer color="indigo" fixed padless>
+  <v-footer
+    :class="{ indigo: modeState, 'blue-grey darken-4': !modeState }"
+    fixed
+    padless
+    dark
+  >
     <v-row justify="center" no-gutters>
       <router-link class="pa-3" :to="{ name: 'Home' }">
         <v-icon dark>mdi-home</v-icon>
@@ -20,7 +25,11 @@
 
 <script>
 export default {
-  data: () => ({}),
+  computed: {
+    modeState() {
+      return this.$store.getters.getModeState;
+    },
+  },
 };
 </script>
 

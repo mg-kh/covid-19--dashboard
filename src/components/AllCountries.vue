@@ -2,7 +2,13 @@
   <v-container>
     <v-row>
       <v-col cols="12">
-        <h1 class="text-center indigo--text">
+        <h1
+          :class="{
+            'indigo--text': modeState,
+            'white--text': !modeState,
+          }"
+          class="text-center text-h6 text-md-h3 text-sm-h4"
+        >
           Explore Covid-19 Statistics Around The World!.
         </h1>
       </v-col>
@@ -29,6 +35,9 @@ export default {
     MapChart,
   },
   computed: {
+    modeState() {
+      return this.$store.getters.getModeState;
+    },
     allCountries() {
       return this.$store.getters.countyLists;
     },

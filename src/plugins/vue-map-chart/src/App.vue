@@ -21,8 +21,17 @@
           <v-card v-if="isfetchingData" color="indigo" dark>
             <v-card-title>Loading...</v-card-title>
           </v-card>
-          <v-card v-else>
-            <v-card-title class="text-h3 justify-center indigo--text">
+          <v-card
+            :class="{ white: modeState, 'blue-grey darken-2': !modeState }"
+            v-else
+          >
+            <v-card-title
+              :class="{
+                'indigo--text': modeState,
+                'indigo--text text--accent-1': !modeState,
+              }"
+              class="text-h3 justify-center"
+            >
               {{ overViewCountryData.country }}
             </v-card-title>
             <div class="img__container pa-3 elevation-3 my-5 blue-grey rounded">
@@ -30,15 +39,49 @@
               </v-img>
             </div>
             <v-card-text class="text-center">
-              <h3 class="indigo--text mb-3">လူဉီးရေ</h3>
-              <p class="text-h6 green--text">
+              <h3
+                :class="{
+                  'indigo--text': modeState,
+                  'indigo--text text--accent-1': !modeState,
+                }"
+                class="mb-3"
+              >
+                လူဉီးရေ
+              </h3>
+              <p
+                :class="{
+                  'green--text': modeState,
+                  'green--text text--accent-1': !modeState,
+                }"
+                class="text-h6"
+              >
                 ({{ overViewCountryData.population }}) ဉီး
               </p>
-              <h3 class="indigo--text mb-3">စုစုပေါင်း</h3>
-              <h3 class="indigo--text mb-3">
+              <h3
+                :class="{
+                  'indigo--text': modeState,
+                  'indigo--text text--accent-1': !modeState,
+                }"
+                class="mb-3"
+              >
+                စုစုပေါင်း
+              </h3>
+              <h3
+                :class="{
+                  'indigo--text': modeState,
+                  'indigo--text text--accent-1': !modeState,
+                }"
+                class="mb-3"
+              >
                 (ပိုးတွေ့ ၊ သက်သာ ၊ ပြင်းထန် ၊ သေဆုံး)
               </h3>
-              <p class="text-h6 green--text">
+              <p
+                :class="{
+                  'green--text': modeState,
+                  'green--text text--accent-1': !modeState,
+                }"
+                class="text-h6"
+              >
                 ({{ overViewCountryData.total }}) ဉီး
               </p>
             </v-card-text>
@@ -81,6 +124,9 @@ export default {
   name: "MapChart",
   components: { Map },
   computed: {
+    modeState() {
+      return this.$store.getters.getModeState;
+    },
     overViewCountryData() {
       return this.$store.getters.overViewCountryData;
     },

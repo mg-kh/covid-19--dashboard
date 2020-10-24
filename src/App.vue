@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <nav-bar></nav-bar>
-    <v-main class="mb-16 pb-10">
+    <v-main class="pb-10" :class="{ 'grey darken-2': !modeState }">
       <router-view></router-view>
     </v-main>
     <Footer></Footer>
@@ -17,6 +17,11 @@ export default {
   components: {
     NavBar,
     Footer,
+  },
+  computed: {
+    modeState() {
+      return this.$store.getters.getModeState;
+    },
   },
 
   data: () => ({

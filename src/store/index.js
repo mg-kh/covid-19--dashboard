@@ -17,6 +17,7 @@ export default new Vuex.Store({
     countries: null,
     eachCountryData: null,
     overViewCountryData: {},
+    modeState: true,
   },
   getters: {
     eachCountryData(state) {
@@ -27,6 +28,9 @@ export default new Vuex.Store({
     },
     overViewCountryData(state) {
       return state.overViewCountryData;
+    },
+    getModeState(state) {
+      return state.modeState;
     },
   },
   mutations: {
@@ -62,6 +66,9 @@ export default new Vuex.Store({
     getCountryLists(state, countries) {
       state.countries = countries;
       state.countryLoading = true;
+    },
+    nightSwitcher(state, night_state) {
+      state.modeState = night_state;
     },
   },
   actions: {
