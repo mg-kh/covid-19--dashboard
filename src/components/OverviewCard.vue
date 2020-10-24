@@ -5,7 +5,7 @@
         <v-dialog v-model="dialog" width="500">
           <v-card>
             <v-card-title class="headline grey lighten-2">
-              Please Wait ...<span>&#128147;</span>
+              ကျေးဇူးပြု၍ ခေတ္တစောင့်ပေးပါ...<span>&#128147;</span>
             </v-card-title>
           </v-card>
         </v-dialog>

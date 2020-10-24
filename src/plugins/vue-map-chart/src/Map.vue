@@ -1799,26 +1799,6 @@ export default {
           name: e.target.attributes.title.value,
         });
       });
-      path.addEventListener("mouseenter", (e) => {
-        _this.$emit("hoverCountry", {
-          code: e.target.id,
-          name: e.target.attributes.title.value,
-          position: {
-            left: e.offsetX,
-            top: e.offsetY,
-          },
-        });
-      });
-      path.addEventListener("mouseleave", (e) => {
-        _this.$emit("hoverLeaveCountry");
-      });
-      path.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-        _this.$emit("contextMenuData", {
-          code: e.target.id,
-          name: e.target.attributes.title.value,
-        });
-      });
     });
   },
   computed: {
@@ -1831,7 +1811,7 @@ export default {
 
 <style lang="scss" scoped>
 .path__light {
-  fill: #3f51b500 !important;
+  fill: #e4e4e4 !important;
   stroke-width: 2;
   transition: all 0.3s;
   &:hover {

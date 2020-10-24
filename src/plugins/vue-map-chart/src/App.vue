@@ -1,25 +1,14 @@
 <template>
   <div class="vue-world-map">
-    <!-- Show Country Name and Flag -->
-    <template>
-      <div class="text-center ma-2">
-        <v-snackbar color="indigo" v-model="snackbar" top right>
-          <v-img width="30" :src="getCountryFlag(legend.code)"></v-img>
-          - {{ legend.name }}
-          <br />
-          <small> - right click to get overview.</small>
-          <br />
-          <small> - left click to get detail.</small>
-        </v-snackbar>
-      </div>
-    </template>
-
     <!-- Show Country Overview Data -->
     <template>
       <div class="text-center">
         <v-dialog v-model="dialog" min-width="300" max-width="400" light>
           <v-card v-if="isfetchingData" color="indigo" dark>
-            <v-card-title>Loading...</v-card-title>
+            <v-card-title
+              >ကျေးဇူးပြု၍ ခေတ္တစောင့်ပေးပါ...
+              <span>&#128147;</span></v-card-title
+            >
           </v-card>
           <v-card
             :class="{ white: modeState, 'blue-grey darken-2': !modeState }"
@@ -84,18 +73,26 @@
               >
                 ({{ overViewCountryData.total }}) ဉီး
               </p>
+              <v-btn
+                :class="{
+                  'indigo white--text': modeState,
+                  light: !modeState,
+                }"
+                :to="{
+                  name: 'Statistics',
+                  params: {
+                    country: overViewCountryData.country,
+                  },
+                }"
+                >ပိုမိုကြည့်ရှုရန်</v-btn
+              >
             </v-card-text>
           </v-card>
         </v-dialog>
       </div>
     </template>
 
-    <Map
-      @hoverCountry="onHoverCountry"
-      @hoverLeaveCountry="onHoverLeaveCountry"
-      @clickCountry="clickCountry"
-      @contextMenuData="contextMenuData"
-    />
+    <Map @clickCountry="clickCountry" />
   </div>
 </template>
 
@@ -182,35 +179,17 @@ export default {
   },
   methods: {
     clickCountry(country) {
-      this.$router.push({
-        name: "Statistics",
-        params: {
-          country: country.name,
-        },
-      });
+      this.legend = country;
+      this.dialog = true;
+      this.isfetchingData = true;
+      this.$store.dispatch("getoverViewCountryData", country.name);
       this.$emit("clickCountry", country);
     },
     onHoverCountry(country) {
       this.legend = country;
       this.position = country.position;
-      this.$emit("hoverCountry", country);
       this.snackbar = true;
-    },
-    onHoverLeaveCountry(country) {
-      // this.legend = {
-      //   data: null,
-      //   code: null,
-      //   name: null,
-      // };
-      this.snackbar = false;
-      this.$emit("hoverLeaveCountry", country);
-    },
-    contextMenuData(country) {
-      this.legend = country;
-      this.dialog = true;
-      this.isfetchingData = true;
-      this.$store.dispatch("getoverViewCountryData", country.name);
-      this.$emit("contextMenuData", country);
+      this.$emit("hoverCountry", country);
     },
     renderMapCSS() {
       const baseCss = getBaseCss(this.$props);

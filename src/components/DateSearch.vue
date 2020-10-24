@@ -11,6 +11,11 @@
     </v-btn>
     <v-row justify="center">
       <v-dialog v-model="dialog" max-width="350">
+        <v-card tile>
+          <v-card-title>
+            ရက်စွဲဖြင့်ရှာရန်
+          </v-card-title>
+        </v-card>
         <v-date-picker
           v-model="dateSearch"
           min="2019-01-1"
