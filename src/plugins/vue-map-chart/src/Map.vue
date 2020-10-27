@@ -1807,7 +1807,7 @@
 export default {
   data() {
     return {
-      initWidth: 300,
+      initWidth: 400,
     };
   },
   mounted() {
@@ -1824,7 +1824,7 @@ export default {
     });
 
     window.addEventListener("resize", function(event) {
-      if (document.body.clientWidth > 390) {
+      if (document.body.clientWidth > 400) {
         var map = document.getElementById("map-svg");
         map.style.width = `100%`;
       }
@@ -1847,7 +1847,7 @@ export default {
     },
     zoomOutMap() {
       var map = document.getElementById("map-svg");
-      this.initWidth = 300;
+      this.initWidth = 400;
       map.style.width = `100%`;
     },
   },
@@ -1887,7 +1887,7 @@ export default {
   right: 7%;
   top: 32%;
   display: none;
-  @media (max-width: 390px) {
+  @media (max-width: 450px) {
     display: block;
   }
 
