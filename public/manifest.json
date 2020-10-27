@@ -1,0 +1,15 @@
+{
+  "name": "Corona Dashboard",
+  "short_name" : "Corona Dashboard",
+  "start_url": "index.html",
+  "display": "standalone",
+  "theme_color": "#0476F2",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "./img/icons/app_icon.png", 
+      "sizes": "144x144", 
+      "type": "image/png" 
+    }
+  ]
+}

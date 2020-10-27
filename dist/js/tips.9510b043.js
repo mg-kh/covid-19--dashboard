@@ -1250,4 +1250,4 @@ var Gr=function(){function t(t,e){var n=this;this.previousValue=t,e&&(e.si=funct
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */function Tu(t){!function(t,e){t.INTERNAL.registerComponent(new u.Component("firestore",(function(t){return function(t,e){var n=new da,r=new pa(n);return new tu(t,e,r,n)}(t.getProvider("app").getImmediate(),t.getProvider("auth-internal"))}),"PUBLIC").setServiceProps(Object.assign({},Eu)))}(t),t.registerVersion("@firebase/firestore","1.18.0")}Tu(h.default),e.__PRIVATE_registerFirestore=Tu}).call(this,n("4362"))},e9b1:function(t,e,n){}}]);
-//# sourceMappingURL=tips.9d328399.js.map
+//# sourceMappingURL=tips.9510b043.js.map

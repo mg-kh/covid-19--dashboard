@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "country-list": "^2.2.0",
     "firebase": "^7.24.0",
+    "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-chartjs": "^3.5.1",
     "vue-map-chart": "0.0.2",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-pwa": "^4.5.8",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
