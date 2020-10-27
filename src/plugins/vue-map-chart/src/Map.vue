@@ -1787,15 +1787,20 @@
     </svg>
     <div class="zoom__container">
       <v-btn
-        :class="{ 'indigo--text': modeState, 'white--text': !modeState }"
-        icon
-        class="mr-3"
+        :class="{ indigo: modeState, 'blue-grey': !modeState }"
+        class="mr-3 elevation-0"
+        fab
+        small
+        dark
         @click.prevent="zoomInMap"
         ><v-icon small>mdi-magnify-plus</v-icon></v-btn
       >
       <v-btn
-        icon
-        :class="{ 'indigo--text': modeState, 'white--text': !modeState }"
+        :class="{ indigo: modeState, 'blue-grey': !modeState }"
+        class="mr-3 elevation-0"
+        fab
+        small
+        dark
         @click.prevent="zoomOutMap"
         ><v-icon small>mdi-magnify-minus</v-icon></v-btn
       >
@@ -1885,15 +1890,10 @@ export default {
 .zoom__container {
   position: fixed;
   right: 7%;
-  top: 32%;
+  bottom: 15%;
   display: none;
   @media (max-width: 450px) {
     display: block;
-  }
-
-  button {
-    width: 15px;
-    height: 15px;
   }
 }
 </style>
