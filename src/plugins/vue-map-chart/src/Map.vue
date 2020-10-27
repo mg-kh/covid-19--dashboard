@@ -1824,13 +1824,9 @@ export default {
     });
 
     window.addEventListener("resize", function(event) {
-      let zoomBox = document.querySelector(".zoom__container");
       if (document.body.clientWidth > 390) {
-        zoomBox.style.display = "none";
         var map = document.getElementById("map-svg");
         map.style.width = `100%`;
-      } else {
-        zoomBox.style.display = "block";
       }
     });
   },
@@ -1891,6 +1887,9 @@ export default {
   right: 7%;
   top: 32%;
   display: none;
+  @media (max-width: 390px) {
+    display: block;
+  }
 
   button {
     width: 15px;
