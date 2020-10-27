@@ -4,7 +4,9 @@
       <div class="text-center">
         <v-dialog v-model="dialog" width="500">
           <v-card>
-            <v-card-title class="headline grey lighten-2">
+            <v-card-title
+              class="headline grey lighten-2 text-subtitle-2 text-sm-h6"
+            >
               ကျေးဇူးပြု၍ ခေတ္တစောင့်ပေးပါ...<span>&#128147;</span>
             </v-card-title>
           </v-card>
@@ -287,7 +289,6 @@ export default {
     return {
       isLoading: true,
       dialog: true,
-      fakeLoader: 6,
     };
   },
   computed: {
@@ -306,8 +307,7 @@ export default {
   },
   watch: {
     countryData(val) {
-      if (val == null) {
-      } else {
+      if (val != null) {
         this.isLoading = false;
       }
     },

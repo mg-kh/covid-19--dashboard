@@ -6,18 +6,27 @@
     dark
   >
     <v-row justify="center" no-gutters>
-      <router-link class="pa-3" :to="{ name: 'Home' }">
-        <v-icon dark>mdi-home</v-icon>
+      <router-link class="pa-3 pb-1 text-center" :to="{ name: 'Home' }">
+        <v-icon dark class="ma-auto">mdi-home</v-icon>
+        <p class="text-caption white--text ma-0">
+          ကမ္ဘာ့အခြေနေ
+        </p>
       </router-link>
       <router-link
-        class="pa-3"
+        class="pa-3 pb-1 text-center"
         :to="{ name: 'Statistics', params: { country: 'myanmar' } }"
         :class="{ active: this.$route.name == 'Statistics' }"
       >
         <v-icon dark>mdi-chart-line</v-icon>
+        <p class="text-caption white--text ma-0">
+          အသေးစိတ်
+        </p>
       </router-link>
-      <router-link class="pa-3" :to="{ name: 'Tips' }">
+      <router-link class="pa-3 pb-1 text-center" :to="{ name: 'Tips' }">
         <v-icon dark>mdi-card-text-outline</v-icon>
+        <p class="text-caption white--text ma-0">
+          အကြံပြုချက်များ
+        </p>
       </router-link>
     </v-row>
   </v-footer>

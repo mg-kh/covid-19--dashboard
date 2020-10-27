@@ -9,19 +9,25 @@
           }"
           class="text-subtitle-1 text-sm-h4"
         >
-          ကျန်းမာရေး
+          ကျန်းမာရေးဆိုင်ရာ အကြံပြုချက်များ
         </h1>
-        <h3
-          :class="{
-            'text--secondary': modeState,
-            'grey--text': !modeState,
-          }"
-          class="text-subtitle-2 text-sm-h6"
-        >
-          အကြံပြုချက်များ
-        </h3>
       </v-col>
     </v-row>
+
+    <template v-if="isLoading">
+      <div class="text-center">
+        <v-dialog v-model="dialog" width="500">
+          <v-card>
+            <v-card-title
+              class="headline grey lighten-2 text-subtitle-2 text-sm-h6"
+            >
+              ကျေးဇူးပြု၍ ခေတ္တစောင့်ပေးပါ...<span>&#128147;</span>
+            </v-card-title>
+          </v-card>
+        </v-dialog>
+      </div>
+    </template>
+
     <v-row>
       <v-col cols="12" sm="6" md="4" v-for="tip in tips" :key="tip.id">
         <v-card :class="{ white: modeState, 'blue-grey darken-2': !modeState }">
@@ -67,6 +73,8 @@ import TipsForm from "@/components/tips/TipsForm";
 export default {
   data() {
     return {
+      isLoading: true,
+      dialog: true,
       form_type: "edit",
       tips: [],
       isAuth: false,
@@ -78,6 +86,13 @@ export default {
   computed: {
     modeState() {
       return this.$store.getters.getModeState;
+    },
+  },
+  watch: {
+    tips(val) {
+      if (val.length != 0) {
+        this.isLoading = false;
+      }
     },
   },
   mounted() {

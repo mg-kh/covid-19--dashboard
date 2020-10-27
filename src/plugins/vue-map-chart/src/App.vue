@@ -4,8 +4,8 @@
     <template>
       <div class="text-center">
         <v-dialog v-model="dialog" min-width="300" max-width="400" light>
-          <v-card v-if="isfetchingData" color="indigo" dark>
-            <v-card-title
+          <v-card v-if="isfetchingData">
+            <v-card-title class="text-subtitle-2 text-sm-h6"
               >ကျေးဇူးပြု၍ ခေတ္တစောင့်ပေးပါ...
               <span>&#128147;</span></v-card-title
             >
@@ -216,6 +216,7 @@ export default {
 .vue-world-map {
   max-width: 900px;
   margin: auto;
+  overflow: auto;
 }
 #map-svg {
   height: 100%;
