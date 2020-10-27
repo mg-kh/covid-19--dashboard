@@ -31,17 +31,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&display=swap");
-
-@import "~vuetify/src/styles/styles.sass";
 #app {
   background: rgb(240, 240, 240);
 }
-.v-application {
-  font-family: "Padauk", sans-serif !important;
-  .title {
-    // To pin point specific classes of some components
-    font-family: "Padauk", sans-serif !important;
-  }
-}
+// .v-application {
+//   font-family: "Padauk", sans-serif !important;
+//   .title {
+//     // To pin point specific classes of some components
+//     font-family: "Padauk", sans-serif !important;
+//   }
+// }
 </style>
