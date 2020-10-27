@@ -4,7 +4,6 @@ import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
 import { firestorePlugin } from "vuefire";
-import "animate.css";
 
 Vue.use(firestorePlugin);
 Vue.config.productionTip = false;

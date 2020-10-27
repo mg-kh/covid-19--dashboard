@@ -1829,7 +1829,6 @@ export default {
         zoomBox.style.display = "none";
         var map = document.getElementById("map-svg");
         map.style.width = `100%`;
-        console.log("over");
       } else {
         zoomBox.style.display = "block";
       }
@@ -1891,6 +1890,7 @@ export default {
   position: fixed;
   right: 7%;
   top: 32%;
+  display: none;
 
   button {
     width: 15px;
