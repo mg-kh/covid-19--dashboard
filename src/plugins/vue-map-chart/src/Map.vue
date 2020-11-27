@@ -1685,7 +1685,7 @@
         />
         <path
           id="US"
-          title="United States"
+          title="USA"
           class="land"
           :class="{
             path__light: modeState,
