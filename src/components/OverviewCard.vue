@@ -68,7 +68,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/X4pO9rD.png"
+								src="https://i.imgur.com/KC2bN8a.png"
 							>
 							</v-img>
 						</div>
@@ -108,7 +108,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/rf2Gcfo.png"
+								src="https://i.imgur.com/7Qn1d4g.png"
 							>
 							</v-img>
 						</div>
@@ -148,7 +148,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/ZEhZZs9.png"
+								src="https://i.imgur.com/T2vCgIQ.png"
 							>
 							</v-img>
 						</div>
@@ -188,7 +188,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/fdK8rNW.png"
+								src="https://i.imgur.com/iwVWEph.png"
 							>
 							</v-img>
 						</div>
@@ -228,7 +228,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/Vrzt1oi.png"
+								src="https://i.imgur.com/gNhLZCc.png"
 							>
 							</v-img>
 						</div>
@@ -268,7 +268,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/10Qu5AO.png"
+								src="https://i.imgur.com/uPbs6Xo.png"
 							>
 							</v-img>
 						</div>
@@ -308,7 +308,7 @@
 						>
 							<v-img
 								width="70px"
-								src="https://i.imgur.com/RuN3vTK.png"
+								src="https://i.imgur.com/Y2DkdiX.png"
 							>
 							</v-img>
 						</div>
